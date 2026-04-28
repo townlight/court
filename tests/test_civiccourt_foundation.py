@@ -6,7 +6,7 @@ from civiccourt.procedure import CourtProcedureSource, answer_procedure_question
 
 
 def test_version_is_release_version():
-    assert __version__ == "0.1.0"
+    assert __version__ == "0.1.1"
 
 
 def test_procedure_answer_is_cited_and_not_legal_advice():
