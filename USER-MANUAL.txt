@@ -4,4 +4,4 @@ For staff: use CivicCourt to draft cited court procedure answers, prepare court 
 
 Boundaries: CivicCourt does not decide cases, issue warrants, file documents, provide legal advice, expose sealed or juvenile records, or replace court case-management systems.
 
-For IT: install with python -m pip install -e ".[dev]" and run with python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143. Depends on civiccore==0.2.0.
+For IT: install with python -m pip install -e ".[dev]" and run with python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143. Depends on civiccore==0.3.0.
