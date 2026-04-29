@@ -10,6 +10,8 @@ def test_root_reports_honest_current_state():
     payload = client.get("/").json()
     assert payload["name"] == "CivicCourt"
     assert payload["version"] == __version__
+    assert payload["status"] == "court clerk support foundation plus workpaper persistence"
+    assert "database-backed form and hearing-prep workpapers" in payload["message"]
     assert "court case management" in payload["message"]
     assert "not implemented yet" in payload["message"]
 
@@ -42,8 +44,8 @@ def test_api_endpoints_return_deterministic_payloads():
         client.post(
             "/api/v1/civiccourt/form-draft",
             json={"case_id": "MC-100", "form_type": "summons", "fields": ["name"]},
-        ).json()["not_filed"]
-        is True
+        ).json()["form_id"]
+        is None
     )
     assert (
         client.post("/api/v1/civiccourt/search", json={"query": "hearing"}).json()[
@@ -55,6 +57,6 @@ def test_api_endpoints_return_deterministic_payloads():
         client.post(
             "/api/v1/civiccourt/hearing-prep",
             json={"case_id": "MC-100", "docket_items": ["Confirm interpreter"]},
-        ).json()["not_scheduling"]
-        is True
+        ).json()["prep_id"]
+        is None
     )

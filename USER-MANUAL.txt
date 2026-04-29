@@ -1,7 +1,7 @@
 CivicCourt User Manual
 
-For staff: use CivicCourt to draft cited court procedure answers, prepare court form drafts, search public sample records while hiding restricted records, and build hearing preparation checklists. Court clerks approve every output before use.
+For staff: use CivicCourt to draft cited court procedure answers, prepare court form drafts, search public sample records while hiding restricted records, build hearing preparation checklists, and optionally retrieve saved form/hearing-prep workpapers when IT enables persistence. Court clerks approve every output before use.
 
 Boundaries: CivicCourt does not decide cases, issue warrants, file documents, provide legal advice, expose sealed or juvenile records, or replace court case-management systems.
 
-For IT: install with python -m pip install -e ".[dev]" and run with python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143. Depends on civiccore==0.3.0.
+For IT: install with python -m pip install -e ".[dev]" and run with python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143. Depends on civiccore==0.3.0. Set CIVICCOURT_WORKPAPER_DB_URL to enable SQLAlchemy-backed court form and hearing-prep workpaper records; without it, POST endpoints remain deterministic and stateless and GET retrieval endpoints return actionable configuration guidance.
