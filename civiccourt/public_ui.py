@@ -7,8 +7,8 @@ def render_public_lookup_page() -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="data:,">
-  <title>CivicCourt v0.1.1</title>
+  <link rel="icon" href="data:,">
+  <title>CivicCourt v0.1.2</title>
   <style>
     :root{--ink:#211b1b;--muted:#655858;--line:#dec3bd;--card:#fff8f4;--accent:#8a3b2f;--bg:#fff1ec}
     body{margin:0;font-family:Aptos,Segoe UI,sans-serif;background:radial-gradient(circle at 10% 10%,#ffe1d8,var(--bg) 38%,#f8f1ff);color:var(--ink)}
@@ -26,17 +26,17 @@ def render_public_lookup_page() -> str:
 <main>
   <p class="eyebrow">CivicSuite / CivicCourt</p>
   <h1>Court clerk support with sealed-record boundaries.</h1>
-  <p>CivicCourt v0.1.1 helps court clerks draft forms, answer procedure questions with citations, search public sample records, and prepare hearing checklists.</p>
+  <p>CivicCourt v0.1.2 helps court clerks draft forms, answer procedure questions with citations, search public sample records, protect persisted retrieval with bearer roles, and prepare hearing checklists.</p>
   <section class="grid">
-    <article class="card"><h2>Ships Today</h2><p>Procedure Q&A, form drafts, restricted-record-aware search, hearing prep, and deterministic API endpoints.</p></article>
+    <article class="card"><h2>Ships Today</h2><p>Procedure Q&amp;A, form drafts, restricted-record-aware search, hearing prep, and deterministic API endpoints.</p></article>
     <article class="card"><h2>Clerk Review</h2><p>Court clerks verify every draft, citation, form, and hearing checklist before use.</p></article>
-    <article class="card"><h2>Boundary</h2><p>No court CMS replacement, e-filing, warrant issuance, judicial decisions, legal advice, live LLM calls, or court connector runtime ships in v0.1.1.</p></article>
+    <article class="card"><h2>Boundary</h2><p>No court CMS replacement, e-filing, warrant issuance, judicial decisions, legal advice, live LLM calls, or court connector runtime ships in v0.1.2.</p></article>
   </section>
   <section class="card" style="margin-top:24px">
     <h2>Architecture</h2>
-    <p><strong>Clerk request</strong> → CivicCourt deterministic API → CivicCore foundation. Court CMS integrations are future isolated read-only adapters, not v0.1.1 write paths.</p>
+    <p><strong>Clerk request</strong> -> CivicCourt deterministic API -> CivicCore foundation. Court CMS integrations are future isolated read-only adapters, not v0.1.2 write paths.</p>
   </section>
-  <p>Dependency: <code>civiccore==0.3.0</code>. Repo: <a href="https://github.com/CivicSuite/civiccourt">CivicSuite/civiccourt</a>.</p>
+  <p>Dependency: <code>civiccore==0.4.0</code>. Retrieval auth: <code>CIVICCOURT_AUTH_TOKEN_ROLES</code>. Repo: <a href="https://github.com/CivicSuite/civiccourt">CivicSuite/civiccourt</a>.</p>
 </main>
 </body>
 </html>
