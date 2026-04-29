@@ -3,7 +3,9 @@
 import os
 
 from civiccore import __version__ as CIVICCORE_VERSION
-from fastapi import FastAPI, HTTPException, Response
+from civiccore.auth import AuthenticatedPrincipal, authorize_bearer_roles
+from fastapi import Depends, FastAPI, HTTPException, Response
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
@@ -23,6 +25,7 @@ app = FastAPI(
 
 _workpaper_repository: CourtWorkpaperRepository | None = None
 _workpaper_db_url: str | None = None
+_workpaper_bearer = HTTPBearer(auto_error=False)
 
 
 @app.get("/favicon.ico", include_in_schema=False)
@@ -77,7 +80,10 @@ def root() -> dict[str, str]:
             "foundation are online; court case management, e-filing, warrant issuance, judicial decisions, "
             "legal advice, live LLM calls, and court CMS connectors are not implemented yet."
         ),
-        "next_step": "Post-v0.1.1 roadmap: isolated deployment profile and read-only court CMS adapters",
+        "next_step": (
+            "Post-v0.1.2 roadmap: isolated deployment profile, SSO-aligned clerk access, "
+            "and read-only court CMS adapters"
+        ),
     }
 
 
@@ -117,14 +123,31 @@ def form_draft(request: FormDraftRequest) -> dict[str, object]:
     return payload
 
 
+def _require_workpaper_reader(
+    credentials: HTTPAuthorizationCredentials | None = Depends(_workpaper_bearer),
+) -> AuthenticatedPrincipal:
+    return authorize_bearer_roles(
+        credentials,
+        service_name="CivicCourt",
+        feature_name="persisted workpaper retrieval",
+        token_roles_env_var="CIVICCOURT_AUTH_TOKEN_ROLES",
+        allowed_roles={"workpaper_reader", "court_clerk_admin"},
+    )
+
+
 @app.get("/api/v1/civiccourt/form-draft/{form_id}")
-def get_form_draft(form_id: str) -> dict[str, object]:
+def get_form_draft(
+    form_id: str,
+    _principal: AuthenticatedPrincipal = Depends(_require_workpaper_reader),
+) -> dict[str, object]:
     if _workpaper_database_url() is None:
         raise HTTPException(
             status_code=503,
             detail={
-                "message": "CivicCourt workpaper persistence is not configured.",
-                "fix": "Set CIVICCOURT_WORKPAPER_DB_URL to retrieve persisted court form drafts.",
+                "message": "CivicCourt persisted workpaper retrieval auth is not configured.",
+                "fix": (
+                    "Set CIVICCOURT_AUTH_TOKEN_ROLES before exposing persisted court form draft retrieval."
+                ),
             },
         )
     stored = _get_workpaper_repository().get_form(form_id)
@@ -160,7 +183,10 @@ def hearing_prep(request: HearingPrepRequest) -> dict[str, object]:
 
 
 @app.get("/api/v1/civiccourt/hearing-prep/{prep_id}")
-def get_hearing_prep(prep_id: str) -> dict[str, object]:
+def get_hearing_prep(
+    prep_id: str,
+    _principal: AuthenticatedPrincipal = Depends(_require_workpaper_reader),
+) -> dict[str, object]:
     if _workpaper_database_url() is None:
         raise HTTPException(
             status_code=503,
