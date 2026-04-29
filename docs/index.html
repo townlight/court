@@ -20,10 +20,10 @@
 <main>
   <span class="badge">Shipping v0.1.1</span>
   <h1>Court clerk support that respects sealed-record boundaries.</h1>
-  <p>CivicCourt helps municipal court clerks answer procedure questions with citations, draft forms, search public sample records, and prepare hearing checklists.</p>
+  <p>CivicCourt helps municipal court clerks answer procedure questions with citations, draft forms, persist optional local workpapers, search public sample records, and prepare hearing checklists.</p>
   <section class="grid">
     <article class="card"><h2>For Clerks</h2><p>Draft procedure answers, forms, and hearing prep checklists that a clerk verifies before use.</p></article>
-    <article class="card"><h2>For IT</h2><p>FastAPI runtime pinned to <code>civiccore==0.3.0</code>, deterministic tests, and no court CMS writes.</p></article>
+    <article class="card"><h2>For IT</h2><p>FastAPI runtime pinned to <code>civiccore==0.3.0</code>, optional persistence with <code>CIVICCOURT_WORKPAPER_DB_URL</code>, deterministic tests, and no court CMS writes.</p></article>
     <article class="card"><h2>For Safety</h2><p>Restricted records are hidden in the sample search contract; sealed and juvenile matters are not exposed.</p></article>
   </section>
   <section class="card" style="margin-top:24px">

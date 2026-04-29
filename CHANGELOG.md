@@ -2,6 +2,11 @@
 
 ## [0.1.1] - 2026-04-28
 
+### Added
+
+- Optional SQLAlchemy-backed court form and hearing-prep workpaper records via `CIVICCOURT_WORKPAPER_DB_URL`.
+- Court form and hearing-prep retrieval endpoints for persisted records.
+
 ### Changed
 
 - Dependency-alignment release: moved CivicCourt to `civiccore==0.3.0` while preserving the existing v0.1.0 runtime foundation behavior.
