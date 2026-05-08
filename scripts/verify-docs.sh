@@ -5,7 +5,7 @@ for file in README.md README.txt USER-MANUAL.md USER-MANUAL.txt CHANGELOG.md doc
     echo "VERIFY-DOCS: FAILED missing $file"
     exit 1
   fi
-  for pattern in CivicUtility civicutility CivicElections civicelections "0.1.1.dev0" "~=0.2" MIT; do
+  for pattern in CivicUtility civicutility CivicElections civicelections "0.1.1.dev0" "~=0.2" MIT "Shipping v0.1.2" "product-ready" "product ready" "production-ready" "production ready" "Ã¢" "â"; do
     if grep -Fq "$pattern" "$file"; then
       echo "VERIFY-DOCS: FAILED stale marker '$pattern' found in $file"
       exit 1
