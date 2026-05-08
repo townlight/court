@@ -3,7 +3,7 @@ set -euo pipefail
 echo "VERIFY-RELEASE: CivicCourt v0.1.2"
 PYTHON_CANDIDATES=()
 [[ -n "${CIVICCOURT_RELEASE_PYTHON:-}" ]] && PYTHON_CANDIDATES+=("$CIVICCOURT_RELEASE_PYTHON")
-PYTHON_CANDIDATES+=(python python3 py "/mnt/c/Users/scott/AppData/Local/Microsoft/WindowsApps/python.exe")
+PYTHON_CANDIDATES+=(python3 python py)
 PYTHON_BIN=""
 for candidate in "${PYTHON_CANDIDATES[@]}"; do
   if command -v "$candidate" >/dev/null 2>&1 && "$candidate" -c "import build, pytest, ruff" >/dev/null 2>&1; then

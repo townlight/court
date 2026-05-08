@@ -1,10 +1,10 @@
 # CivicCourt
 
-CivicCourt is the CivicSuite municipal court clerk support module. Version 0.1.2 helps clerks prepare cited procedure answers, draft review-required court forms, build hearing prep checklists, search sample public records while hiding restricted matters, and optionally persist local workpaper records.
+CivicCourt is the CivicSuite municipal court clerk support module. Published version 0.1.2 is a foundation label under suite-wide release-recovery review. It helps clerks prepare cited procedure answers, draft review-required court forms, build hearing prep checklists, search sample public records while hiding restricted matters, and optionally persist local workpaper records. Do not promote it as production court software until the recovery gates and a future v1.0.0 definition of done are complete.
 
 It is intentionally not a court case-management system, e-filing system, warrant issuance workflow, judicial decision tool, legal advice engine, live LLM runtime, or court CMS connector.
 
-## Shipping in v0.1.2
+## Available in v0.1.2
 
 - Cited procedure Q&A for clerk-reviewed court workflow support.
 - Court form draft assembly with a not-filed boundary.
@@ -26,7 +26,7 @@ python -m pip install -e ".[dev]"
 python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143
 ```
 
-CivicCourt v0.1.2 is pinned to `civiccore==0.4.0`.
+CivicCourt v0.1.2 is pinned to the published CivicCore v0.4.0 release wheel.
 
 ## API Surface
 
