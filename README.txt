@@ -14,4 +14,4 @@ Set CIVICCOURT_WORKPAPER_DB_URL to enable local SQLAlchemy-backed court form and
 Set CIVICCOURT_AUTH_TOKEN_ROLES to a JSON token-to-role map before exposing persisted retrieval.
 Without the database variable, CivicCourt remains deterministic and stateless. Without the auth variable, persisted retrieval endpoints return actionable 503 guidance. With auth configured, anonymous callers receive 401 and unauthorized roles receive 403.
 
-Apache 2.0 code. CC BY 4.0 docs.
+License: Code: AGPL-3.0-only, with the TownLight Public Institution Exception for qualifying deployments. See LICENSE and LICENSE-EXCEPTION.md. Documentation: CC BY 4.0 (LICENSE-DOCS).
