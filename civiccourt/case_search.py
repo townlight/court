@@ -28,7 +28,7 @@ def search_court_records(query: str, records: list[CourtRecord]) -> CourtSearchR
         results=visible,
         restricted_records_hidden=len(visible) != len(records),
         boundary=(
-            "CivicCourt search excludes sealed and juvenile records in v0.1.1 and is not a "
+            "Townlight Courts search excludes sealed and juvenile records in v0.1.1 and is not a "
             "court case-management system."
         ),
     )

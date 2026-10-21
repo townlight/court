@@ -1,6 +1,8 @@
-# CivicCourt
+<a id="civiccourt"></a>
 
-CivicCourt is the CivicSuite municipal court clerk support module. Published version 0.1.2 is a foundation label under suite-wide release-recovery review. It helps clerks prepare cited procedure answers, draft review-required court forms, build hearing prep checklists, search sample public records while hiding restricted matters, and optionally persist local workpaper records. Do not promote it as production court software until the recovery gates and a future v1.0.0 definition of done are complete.
+# Townlight Courts
+
+Townlight Courts is the Townlight municipal court clerk support module. Published version 0.1.2 is a foundation label under suite-wide release-recovery review. It helps clerks prepare cited procedure answers, draft review-required court forms, build hearing prep checklists, search sample public records while hiding restricted matters, and optionally persist local workpaper records. Do not promote it as production court software until the recovery gates and a future v1.0.0 definition of done are complete.
 
 It is intentionally not a court case-management system, e-filing system, warrant issuance workflow, judicial decision tool, legal advice engine, live LLM runtime, or court CMS connector.
 
@@ -26,12 +28,12 @@ python -m pip install -e ".[dev]"
 python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143
 ```
 
-CivicCourt v0.1.2 is pinned to the published CivicCore v0.4.0 release wheel.
+Townlight Courts v0.1.2 is pinned to the published Townlight Core v0.4.0 release wheel.
 
 ## API Surface
 
 - `GET /` returns honest current-state metadata and roadmap boundary.
-- `GET /health` returns runtime and CivicCore version status.
+- `GET /health` returns runtime and Townlight Core version status.
 - `GET /civiccourt` renders the public module overview.
 - `POST /api/v1/civiccourt/procedure-answer` returns a cited procedure answer draft.
 - `POST /api/v1/civiccourt/form-draft` returns a clerk-reviewed form draft and a `form_id` when persistence is configured.
@@ -57,7 +59,7 @@ Set `CIVICCOURT_AUTH_TOKEN_ROLES` to a JSON object that maps bearer tokens to ro
 }
 ```
 
-Without the database variable, CivicCourt remains deterministic and stateless. Without the auth variable, persisted retrieval endpoints return actionable `503` responses that name the missing auth configuration. With auth configured, anonymous callers receive `401` and callers without an allowed role receive `403`.
+Without the database variable, Townlight Courts remains deterministic and stateless. Without the auth variable, persisted retrieval endpoints return actionable `503` responses that name the missing auth configuration. With auth configured, anonymous callers receive `401` and callers without an allowed role receive `403`.
 
 ## Documentation
 

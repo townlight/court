@@ -1,4 +1,4 @@
-"""FastAPI runtime foundation for CivicCourt."""
+"""FastAPI runtime foundation for Townlight Courts."""
 
 import os
 
@@ -18,9 +18,9 @@ from civiccourt.procedure import CourtProcedureSource, answer_procedure_question
 from civiccourt.public_ui import render_public_lookup_page
 
 app = FastAPI(
-    title="CivicCourt",
+    title='Townlight Courts',
     version=__version__,
-    description="Municipal court clerk document and procedure support foundation for CivicSuite.",
+    description='Municipal court clerk document and procedure support foundation for Townlight.',
 )
 
 _workpaper_repository: CourtWorkpaperRepository | None = None
@@ -75,7 +75,7 @@ def root() -> dict[str, str]:
         "version": __version__,
         "status": "court clerk support foundation plus workpaper persistence",
         "message": (
-            "CivicCourt procedure Q&A, form drafts, restricted-record-aware search, hearing "
+            "Townlight Courts procedure Q&A, form drafts, restricted-record-aware search, hearing "
             "prep checklists, optional database-backed form and hearing-prep workpapers, and public UI "
             "foundation are online; court case management, e-filing, warrant issuance, judicial decisions, "
             "legal advice, live LLM calls, and court CMS connectors are not implemented yet."
@@ -128,7 +128,7 @@ def _require_workpaper_reader(
 ) -> AuthenticatedPrincipal:
     return authorize_bearer_roles(
         credentials,
-        service_name="CivicCourt",
+        service_name='Townlight Courts',
         feature_name="persisted workpaper retrieval",
         token_roles_env_var="CIVICCOURT_AUTH_TOKEN_ROLES",
         allowed_roles={"workpaper_reader", "court_clerk_admin"},
@@ -144,7 +144,7 @@ def get_form_draft(
         raise HTTPException(
             status_code=503,
             detail={
-                "message": "CivicCourt persisted workpaper retrieval auth is not configured.",
+                "message": "Townlight Courts persisted workpaper retrieval auth is not configured.",
                 "fix": (
                     "Set CIVICCOURT_AUTH_TOKEN_ROLES before exposing persisted court form draft retrieval."
                 ),
@@ -191,7 +191,7 @@ def get_hearing_prep(
         raise HTTPException(
             status_code=503,
             detail={
-                "message": "CivicCourt workpaper persistence is not configured.",
+                "message": "Townlight Courts workpaper persistence is not configured.",
                 "fix": "Set CIVICCOURT_WORKPAPER_DB_URL to retrieve persisted hearing prep records.",
             },
         )

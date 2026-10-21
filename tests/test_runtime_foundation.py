@@ -32,10 +32,10 @@ def test_health_reports_civiccore_pin():
 
 def test_public_ui_contains_version_boundaries_and_dependency():
     text = client.get("/civiccourt").text
-    assert "CivicCourt v0.1.2" in text
+    assert "Townlight Courts v0.1.2" in text
     assert "No court CMS replacement" in text
     assert "published foundation label under suite-wide release-recovery review" in text
-    assert "CivicCore v0.4.0 release wheel" in text
+    assert "Townlight Core v0.4.0 release wheel" in text
 
 
 def test_api_endpoints_return_deterministic_payloads():

@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a CivicHR improvement
+about: Suggest a Townlight HR improvement
 title: "[Feature]: "
 labels: enhancement
 ---

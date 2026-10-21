@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a CivicHR defect
+about: Report a Townlight HR defect
 title: "[Bug]: "
 labels: bug
 ---

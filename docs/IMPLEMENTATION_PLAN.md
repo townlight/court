@@ -1,4 +1,6 @@
-# CivicCourt Implementation Plan
+<a id="civiccourt-implementation-plan"></a>
+
+# Townlight Courts Implementation Plan
 
 ## v0.1.0
 
@@ -14,4 +16,4 @@ Ship the runtime foundation only:
 - Isolated deployment profile.
 - Read-only court CMS adapters.
 - Clerk review queue.
-- Optional local LLM prompt layer through CivicCore.
+- Optional local LLM prompt layer through Townlight Core.

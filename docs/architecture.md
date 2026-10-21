@@ -1,8 +1,10 @@
-# CivicCourt Architecture
+<a id="civiccourt-architecture"></a>
 
-CivicCourt v0.1.0 is a deterministic FastAPI module over CivicCore. It provides municipal court clerk support while explicitly avoiding case-management-system replacement and high-risk decision surfaces.
+# Townlight Courts Architecture
 
-![CivicCourt architecture](architecture-civiccourt.svg)
+Townlight Courts v0.1.0 is a deterministic FastAPI module over Townlight Core. It provides municipal court clerk support while explicitly avoiding case-management-system replacement and high-risk decision surfaces.
+
+![Townlight Courts architecture](architecture-civiccourt.svg)
 
 ## Shipped
 

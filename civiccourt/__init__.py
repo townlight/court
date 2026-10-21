@@ -1,3 +1,3 @@
-"""CivicCourt v0.1.2 public package."""
+"""Townlight Courts v0.1.2 public package."""
 
 __version__ = "0.1.2"
