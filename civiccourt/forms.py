@@ -21,7 +21,7 @@ def draft_court_form(case_id: str, form_type: str, fields: list[str]) -> CourtFo
         clerk_review_required=True,
         not_filed=True,
         boundary=(
-            "Draft only: CivicCourt does not issue warrants, file documents, schedule hearings, "
+            "Draft only: Townlight Courts does not issue warrants, file documents, schedule hearings, "
             "or replace the court case-management system."
         ),
     )

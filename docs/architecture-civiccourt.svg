@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520" role="img" aria-labelledby="title desc">
-  <title id="title">CivicCourt architecture</title>
-  <desc id="desc">CivicCourt sits above CivicCore and supports court clerks without replacing court case management or exposing restricted records.</desc>
+  <title id="title">Townlight Courts architecture</title>
+  <desc id="desc">Townlight Courts sits above Townlight Core and supports court clerks without replacing court case management or exposing restricted records.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#fff1ec"/>
@@ -19,20 +19,20 @@
     </marker>
   </defs>
   <rect width="1100" height="520" fill="url(#bg)"/>
-  <text x="55" y="62" class="text title">CivicCourt v0.1.0</text>
+  <text x="55" y="62" class="text title">Townlight Courts v0.1.0</text>
   <text x="55" y="94" class="text body">Municipal court clerk document and procedure support</text>
   <rect x="55" y="140" width="240" height="120" class="box"/>
   <text x="83" y="180" class="text title">Court Clerk</text>
   <text x="83" y="212" class="text body">Procedure question</text>
   <text x="83" y="238" class="text body">Form / hearing prep</text>
   <rect x="400" y="105" width="310" height="210" class="box"/>
-  <text x="430" y="150" class="text title">CivicCourt API</text>
+  <text x="430" y="150" class="text title">Townlight Courts API</text>
   <text x="430" y="185" class="text body">Cited procedure Q&amp;A</text>
   <text x="430" y="212" class="text body">Form drafts</text>
   <text x="430" y="239" class="text body">Restricted search</text>
   <text x="430" y="266" class="text body">Hearing prep</text>
   <rect x="805" y="110" width="240" height="95" class="box"/>
-  <text x="835" y="150" class="text title">CivicCore</text>
+  <text x="835" y="150" class="text title">Townlight Core</text>
   <text x="835" y="178" class="text body">Shared foundation</text>
   <rect x="805" y="250" width="240" height="140" class="hard"/>
   <text x="835" y="292" class="text title">Court CMS</text>

@@ -87,7 +87,7 @@ def test_get_form_without_auth_config_returns_actionable_503(monkeypatch) -> Non
 
     assert response.status_code == 503
     detail = response.json()["detail"]
-    assert detail["message"] == "CivicCourt persisted workpaper retrieval auth is not configured."
+    assert detail["message"] == "Townlight Courts persisted workpaper retrieval auth is not configured."
     assert "Set CIVICCOURT_AUTH_TOKEN_ROLES" in detail["fix"]
 
 

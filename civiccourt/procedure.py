@@ -31,7 +31,7 @@ def answer_procedure_question(
         citations=citations,
         clerk_review_required=True,
         boundary=(
-            "CivicCourt provides clerk support over court procedures and forms; it does not "
+            "Townlight Courts provides clerk support over court procedures and forms; it does not "
             "provide legal advice, decide cases, or replace the court CMS."
         ),
     )

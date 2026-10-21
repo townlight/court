@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "civiccourt"
 version = "0.1.2"
-description = "CivicCourt foundation for municipal court clerk procedure Q&A, form drafts, record search, and hearing prep."
+description = "Townlight Courts foundation for municipal court clerk procedure Q&A, form drafts, record search, and hearing prep."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "AGPL-3.0-only" }

@@ -1,4 +1,4 @@
-"""HTML landing surface for the CivicCourt runtime."""
+"""HTML landing surface for the Townlight Courts runtime."""
 
 
 def render_public_lookup_page() -> str:
@@ -8,7 +8,7 @@ def render_public_lookup_page() -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>CivicCourt v0.1.2</title>
+  <title>Townlight Courts v0.1.2</title>
   <style>
     :root{--ink:#211b1b;--muted:#655858;--line:#dec3bd;--card:#fff8f4;--accent:#8a3b2f;--bg:#fff1ec}
     body{margin:0;font-family:Aptos,Segoe UI,sans-serif;background:radial-gradient(circle at 10% 10%,#ffe1d8,var(--bg) 38%,#f8f1ff);color:var(--ink)}
@@ -24,9 +24,9 @@ def render_public_lookup_page() -> str:
 </head>
 <body>
 <main>
-  <p class="eyebrow">CivicSuite / CivicCourt</p>
+  <p class="eyebrow">Townlight / Townlight Courts</p>
   <h1>Court clerk support with sealed-record boundaries.</h1>
-  <p>CivicCourt v0.1.2 is a published foundation label under suite-wide release-recovery review. It helps court clerks draft forms, answer procedure questions with citations, search public sample records, protect persisted retrieval with bearer roles, and prepare hearing checklists.</p>
+  <p>Townlight Courts v0.1.2 is a published foundation label under suite-wide release-recovery review. It helps court clerks draft forms, answer procedure questions with citations, search public sample records, protect persisted retrieval with bearer roles, and prepare hearing checklists.</p>
   <section class="grid">
     <article class="card"><h2>Available Today</h2><p>Procedure Q&amp;A, form drafts, restricted-record-aware search, hearing prep, and deterministic API endpoints.</p></article>
     <article class="card"><h2>Clerk Review</h2><p>Court clerks verify every draft, citation, form, and hearing checklist before use.</p></article>
@@ -34,9 +34,9 @@ def render_public_lookup_page() -> str:
   </section>
   <section class="card" style="margin-top:24px">
     <h2>Architecture</h2>
-    <p><strong>Clerk request</strong> -> CivicCourt deterministic API -> CivicCore foundation. Court CMS integrations are future isolated read-only adapters, not v0.1.2 write paths.</p>
+    <p><strong>Clerk request</strong> -> Townlight Courts deterministic API -> Townlight Core foundation. Court CMS integrations are future isolated read-only adapters, not v0.1.2 write paths.</p>
   </section>
-  <p>Dependency: CivicCore v0.4.0 release wheel. Retrieval auth: <code>CIVICCOURT_AUTH_TOKEN_ROLES</code>. Repo: <a href="https://github.com/CivicSuite/civiccourt">CivicSuite/civiccourt</a>.</p>
+  <p>Dependency: Townlight Core v0.4.0 release wheel. Retrieval auth: <code>CIVICCOURT_AUTH_TOKEN_ROLES</code>. Repo: <a href="https://github.com/townlight/court">CivicSuite/civiccourt</a>.</p>
 </main>
 </body>
 </html>
