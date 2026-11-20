@@ -1,17 +1,67 @@
+  Parked foundation — outside the released Windows suite. This repository contains exploratory/support code, not a completed Townlight product. It is not installed or supported by Windows 1.8.1.1. Historical examples, package names and dependency pins below describe this foundation and must not be used as current suite installation instructions. Use the released Windows suite, current modules and acceptance limits.
+
 Townlight Courts
 
-Townlight Courts published v0.1.2 is a foundation label under suite-wide release-recovery review. It provides municipal court clerk support foundations: cited procedure Q&A, review-required court form drafts, hearing preparation checklists, restricted-record-aware search, optional database-backed court form and hearing-prep workpaper records, bearer-token protection for persisted retrieval, FastAPI runtime, public sample UI, docs, tests, browser QA, and release gates. Do not promote it as production court software until the recovery gates and a future v1.0.0 definition of done are complete.
+Townlight Courts is the Townlight municipal court clerk support module. Published version 0.1.2 is a foundation label under suite-wide release-recovery review. It helps clerks prepare cited procedure answers, draft review-required court forms, build hearing prep checklists, search sample public records while hiding restricted matters, and optionally persist local workpaper records. Do not promote it as production court software until the recovery gates and a future v1.0.0 definition of done are complete.
 
-It is not a court case-management system, e-filing system, warrant issuance workflow, judicial decision tool, legal advice engine, live LLM runtime, or court CMS connector.
+It is intentionally not a court case-management system, e-filing system, warrant issuance workflow, judicial decision tool, legal advice engine, live LLM runtime, or court CMS connector.
 
-Install:
-python -m pip install -e ".[dev]"
-python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143
+Available in v0.1.2
+
+- Cited procedure Q&A for clerk-reviewed court workflow support.
+- Court form draft assembly with a not-filed boundary.
+- Hearing preparation checklist support for clerk use before scheduling or filing.
+- Restricted-record-aware sample search that keeps sealed and juvenile matters out of public results.
+- Optional database-backed court form and hearing-prep workpaper records via CIVICCOURT_WORKPAPER_DB_URL.
+- Bearer-token protection for persisted form and hearing-prep retrieval via CIVICCOURT_AUTH_TOKEN_ROLES.
+- FastAPI runtime with health, public landing page, deterministic endpoints, docs, tests, browser QA, and release gates.
+
+Not shipped yet
+
+- Court CMS write-back, e-filing, warrants, judicial decisions, legal advice, live LLM calls, or live court CMS connector runtime.
+- Staff SSO, clerk approval queues, and official filing workflows. v0.1.2 protects persisted retrieval only; later releases will expand workflow auth.
+
+Install
+
+    python -m pip install -e ".[dev]"
+    python -m uvicorn civiccourt.main:app --host 127.0.0.1 --port 8143
 
 Townlight Courts v0.1.2 is pinned to the published Townlight Core v0.4.0 release wheel.
 
-Set CIVICCOURT_WORKPAPER_DB_URL to enable local SQLAlchemy-backed court form and hearing-prep workpaper records.
-Set CIVICCOURT_AUTH_TOKEN_ROLES to a JSON token-to-role map before exposing persisted retrieval.
-Without the database variable, Townlight Courts remains deterministic and stateless. Without the auth variable, persisted retrieval endpoints return actionable 503 guidance. With auth configured, anonymous callers receive 401 and unauthorized roles receive 403.
+API Surface
 
-License: Code: AGPL-3.0-only, with the TownLight Public Institution Exception for qualifying deployments. See LICENSE and LICENSE-EXCEPTION.md. Documentation: CC BY 4.0 (LICENSE-DOCS).
+- GET / returns honest current-state metadata and roadmap boundary.
+- GET /health returns runtime and Townlight Core version status.
+- GET /civiccourt renders the public module overview.
+- POST /api/v1/civiccourt/procedure-answer returns a cited procedure answer draft.
+- POST /api/v1/civiccourt/form-draft returns a clerk-reviewed form draft and a form_id when persistence is configured.
+- GET /api/v1/civiccourt/form-draft/{form_id} retrieves a persisted form draft when both CIVICCOURT_WORKPAPER_DB_URL and CIVICCOURT_AUTH_TOKEN_ROLES are configured.
+- POST /api/v1/civiccourt/search returns restricted-record-aware sample search results.
+- POST /api/v1/civiccourt/hearing-prep returns a hearing prep checklist and a prep_id when persistence is configured.
+- GET /api/v1/civiccourt/hearing-prep/{prep_id} retrieves a persisted hearing prep record when both CIVICCOURT_WORKPAPER_DB_URL and CIVICCOURT_AUTH_TOKEN_ROLES are configured.
+
+Optional Persistence And Retrieval Auth
+
+Set CIVICCOURT_WORKPAPER_DB_URL to enable local SQLAlchemy-backed court form and hearing-prep workpaper records:
+
+    export CIVICCOURT_WORKPAPER_DB_URL="sqlite+pysqlite:///./civiccourt.db"
+
+Set CIVICCOURT_AUTH_TOKEN_ROLES to a JSON object that maps bearer tokens to roles before exposing persisted retrieval:
+
+    {
+      "reader-token": ["workpaper_reader"],
+      "clerk-admin-token": "workpaper_reader,court_clerk_admin"
+    }
+
+Without the database variable, Townlight Courts remains deterministic and stateless. Without the auth variable, persisted retrieval endpoints return actionable 503 responses that name the missing auth configuration. With auth configured, anonymous callers receive 401 and callers without an allowed role receive 403.
+
+Documentation
+
+- User Manual
+- Architecture
+- Landing Page
+- Release Notes
+
+License
+
+Code: AGPL-3.0-only, with the TownLight Public Institution Exception for qualifying deployments. See LICENSE and LICENSE-EXCEPTION.md. Documentation: CC BY 4.0 (LICENSE-DOCS).

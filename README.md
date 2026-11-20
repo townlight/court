@@ -1,3 +1,5 @@
+> **Parked foundation — outside the released Windows suite.** This repository contains exploratory/support code, not a completed Townlight product. It is not installed or supported by Windows 1.8.1.1. Historical examples, package names and dependency pins below describe this foundation and must not be used as current suite installation instructions. Use the [released Windows suite, current modules and acceptance limits](https://townlight.github.io/versions.html).
+
 <a id="civiccourt"></a>
 
 # Townlight Courts
